@@ -1,4 +1,4 @@
-package com.flyerzrule.enderpearl.logger;
+package com.flyerzrule.enderpearl_logger;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

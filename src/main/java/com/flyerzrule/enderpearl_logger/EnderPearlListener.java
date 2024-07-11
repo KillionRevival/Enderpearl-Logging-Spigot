@@ -1,4 +1,4 @@
-package com.flyerzrule.enderpearl.logger;
+package com.flyerzrule.enderpearl_logger;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,8 +19,10 @@ public class EnderPearlListener implements Listener {
 
     @EventHandler
     public void onPlayerUseEnderPearl(PlayerInteractEvent event) {
-        // Make sure the pearl is in the main hand
-        if (event.getHand() == EquipmentSlot.HAND) {
+        // Make sure the pearl is in the main hand and a right click
+        if (event.getHand() == EquipmentSlot.HAND &&
+            event.getAction().name() == "RIGHT_CLICK_AIR"
+        ) {
             ItemStack item = event.getItem();
             if (item != null && item.getType() == Material.ENDER_PEARL) {
                 plugin.getLogger().info(event.getPlayer().getName() + " used an Enderpearl at " + formatLocation(event.getPlayer().getLocation()));
